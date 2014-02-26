@@ -274,7 +274,7 @@ class TFramedTransport(TTransportBase, CReadableTransport):
   def readFrame(self):
     buff = self.__trans.readAll(4)
     sz, = unpack('!i', buff)
-    self.__rbuf = StringIO(self.__trans.readAll(sz))
+    self.__rbuf = BytesIO(self.__trans.readAll(sz))
 
   def write(self, buf):
     self.__wbuf.write(buf)
